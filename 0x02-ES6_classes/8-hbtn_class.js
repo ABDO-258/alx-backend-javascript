@@ -4,7 +4,11 @@ export default class HolbertonClass {
     this._location = location; 
   }
 
+  valueOf() {
+    return this._size; // Return size for numeric conversions
+  }
+
   toString() {
-    return `[object ${this._code}]`;
+    return this._location; // Return location for string conversions
   }
 }
