@@ -30,6 +30,16 @@ class TeacherImpl implements Teacher {
   ) {}
 }
 
+interface printTeacherFunction {
+  (firstName: string, lastName: string): string,
+}
+
+export const printTeacher: printTeacherFunction = (firstName, lastName) => {
+  return `${firstName[0].toUpperCase}. ${lastName}`;
+}
+
+console.log(printTeacher('car', 'toon'));
+
 const additionalAttribute = {
   name: 'contract',
   value: false,
@@ -56,3 +66,38 @@ const director1: Directors = {
   additionalAttributes: [],
 };
 console.log(director1);
+
+interface StudentConstructor {
+  firstName: string;
+  lastName: string;
+}
+
+interface StudentClassInterface {
+  workOnHomework(): string;
+  displayName(): string;
+}
+
+class StudentClass implements StudentClassInterface {
+  firstName: string;
+  lastName: string;
+
+  constructor({ firstName, lastName }: StudentConstructor) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  workOnHomework(): string {
+    return 'Currently working';
+  }
+
+  displayName(): string {
+    return this.firstName;
+  }
+}
+
+// Create an instance of StudentClass
+const student = new StudentClass({ firstName: 'tara', lastName: 'sing' });
+
+// Test the methods
+console.log(student.workOnHomework()); // Output: Currently working
+console.log(student.displayName());    // Output: tara
