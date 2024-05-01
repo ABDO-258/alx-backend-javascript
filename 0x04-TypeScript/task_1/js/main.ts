@@ -12,6 +12,10 @@ interface Teacher {
   additionalAttributes: AdditionalAttribute[];
 };
 
+interface Directors extends Teacher {
+  numberOfReports: number;
+}
+
 
 
 class TeacherImpl implements Teacher {
@@ -42,3 +46,13 @@ const teacher3 = new TeacherImpl(
 );
 
 console.log(teacher3);
+
+const director1: Directors = {
+  firstName: 'John',
+  lastName: 'Doe',
+  location: 'London',
+  fullTimeEmployee: true,
+  numberOfReports: 17,
+  additionalAttributes: [],
+};
+console.log(director1);
