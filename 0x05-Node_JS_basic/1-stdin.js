@@ -9,8 +9,9 @@ process.stdin.on('data', (data) => {
   // Display the user's input
   console.log(`Your name is: ${name}`);
 
-  // Close the input stream
-  process.stdin.end();
+  // Display the closing message and exit the process
+  console.log('This important software is now closing');
+  process.exit();
 });
 
 process.stdin.on('end', () => {
