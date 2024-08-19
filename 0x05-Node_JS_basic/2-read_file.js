@@ -12,16 +12,14 @@ function countStudents(path) {
     let NumberOfStudents = 0;
     // Process each student line
     for (const line of lines) {
-      if (line.trim() === '') {
-        continue;
+      if (line.trim() !== '') {
+        const [firstName, , , field] = line.split(',');
+        if (!fields[field]) {
+          fields[field] = [];
+        }
+        fields[field].push(firstName);
+        NumberOfStudents += 1;
       }
-      const [firstName, , , field] = line.split(',');
-      if (!fields[field]) {
-        fields[field] = [];
-      }
-      fields[field].push(firstName);
-
-      NumberOfStudents += 1;
     }
     console.log(`Number of students: ${NumberOfStudents}`);
     for (const [field, firstNames] of Object.entries(fields)) {
