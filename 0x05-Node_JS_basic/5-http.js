@@ -23,9 +23,9 @@ async function countStudents(path) {
         NumberOfStudents += 1;
       }
     }
-    output += `Number of students: ${NumberOfStudents}`;
+    output += `Number of students: ${NumberOfStudents}\n`;
     for (const [field, firstNames] of Object.entries(fields)) {
-      output += `Number of students in ${field}: ${firstNames.length}. List: ${firstNames.join(', ')}`;
+      output += `Number of students in ${field}: ${firstNames.length}. List: ${firstNames.join(', ')}\n`;
     }
     return output.trim(); // Return the output string
   } catch (error) {
