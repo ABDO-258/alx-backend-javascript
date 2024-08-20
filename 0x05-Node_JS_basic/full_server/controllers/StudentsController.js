@@ -7,7 +7,8 @@ class StudentsController {
       const students = await readDatabase(process.argv[2]);
       let responseText = 'This is the list of our students\n';
 
-      const sortedFields = Object.keys(students).sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+      const sortedFields = Object.keys(students)
+        .sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
 
       for (const field of sortedFields) {
         const firstNames = students[field];
@@ -22,7 +23,7 @@ class StudentsController {
 
   // Method to get students by major
   static async getAllStudentsByMajor(req, res) {
-    const major = req.params.major;
+    const { major } = req.params;
 
     if (major !== 'CS' && major !== 'SWE') {
       res.status(500).send('Major parameter must be CS or SWE');
