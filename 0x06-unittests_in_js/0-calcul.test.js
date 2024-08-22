@@ -25,4 +25,12 @@ describe('calculateNumber', () => {
   it('should return -2 when input is (-1, -1)', () => {
     assert.strictEqual(calculateNumber(-1, -1), -2);
   });
+
+  it('should return 0 when input is (-0.4, 0.4)', function () {
+    assert.strictEqual(calculateNumber(-0.4, 0.4), 0);
+  });
+  
+  it('should return -2 when input is (-1.6, -0.4)', function () {
+    assert.strictEqual(calculateNumber(-1.6, -0.4), -2);
+  });
 });

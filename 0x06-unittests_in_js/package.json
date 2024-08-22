@@ -5,6 +5,8 @@
     "test": "mocha"
   },
   "devDependencies": {
-    "mocha": "^10.0.0"
+    "chai": "^5.1.1",
+    "mocha": "^10.0.0",
+    "sinon": "^18.0.0"
   }
 }
